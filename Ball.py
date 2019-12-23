@@ -20,3 +20,7 @@ class Ball:
     def draw_ball(self):
         self.bildschirm.fill((255, 255, 255))
         pygame.draw.circle(self.bildschirm, self.color, (self.radius, self.radius), self.radius)
+
+    def collision_player(self, xplayleft = 0, xplayright = 0, yplay = 0):
+        if self.ycoord + 2 * self.radius == yplay and xplayleft <= self.xcoord + self.radius <= xplayright:
+            self.yvelo = - self.yvelo

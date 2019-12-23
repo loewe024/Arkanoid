@@ -5,7 +5,7 @@ from Player import Player
 
 pygame.init()
 ball = Ball(200, 180, 20, [0, 255, 0], 1, 1)
-player = Player(0, 400, 100, 10, [0, 0, 0], 0)
+player = Player(250, 450, 100, 10, [0, 0, 0], 0)
 # Set up the drawing window
 screen = pygame.display.set_mode([600, 500])
 width = 600
@@ -58,9 +58,13 @@ while running:
         player.xcoord = 0
     player.draw_player()
 
+    ball.collision_player(player.xcoord, player.xcoord + player.width, player.ycoord)
 
     screen.blit(ball.bildschirm, (ball.xcoord, ball.ycoord))
     screen.blit(player.bildschirm, (player.xcoord, player.ycoord))
     pygame.display.flip()
+
+    # if ball.ycoord + 2 * ball.radius >= height:
+    #     running = False
 # Done! Time to quit.
 pygame.quit()
