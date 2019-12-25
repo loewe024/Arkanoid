@@ -2,14 +2,13 @@ import pygame
 from Ball import Ball
 from Player import Player
 
-
 pygame.init()
-ball = Ball(200, 180, 20, [0, 255, 0], 1, 1)
-player = Player(250, 450, 100, 10, [0, 0, 0], 0)
+ball = Ball(415, 500, 14, [0, 255, 0], 1, 1)
+player = Player(415, 920, 170, 40, [0, 0, 0], 0)
 # Set up the drawing window
-screen = pygame.display.set_mode([600, 500])
-width = 600
-height = 500
+screen = pygame.display.set_mode([1000, 1050])
+width = 1000
+height = 1050
 
 
 # Run until the user asks to quit
@@ -17,7 +16,7 @@ running = True
 while running:
 
     clock = pygame.time.Clock()
-    clock.tick(100)
+    clock.tick(3000)
 
     # Did the user click the window close button?
     for event in pygame.event.get():
@@ -27,6 +26,8 @@ while running:
     # Fill the background with white
     screen.fill((255, 255, 255))
 
+
+# bounces on corner of screen
     ball.draw_ball()
     if ball.xcoord >= width - 2 * ball.radius:
         ball.xvelo = -abs(ball.xvelo)
@@ -38,8 +39,7 @@ while running:
     elif ball.ycoord <= 0:
         ball.yvelo = abs(ball.yvelo)
 
-
-
+    # change position of ball
     if ball.xvelo > 0:
         ball.xcoord += 1
     else:
