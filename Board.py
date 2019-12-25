@@ -17,7 +17,7 @@ running = True
 while running:
 
     clock = pygame.time.Clock()
-    clock.tick(1000)
+    clock.tick(100)
 
     # Did the user click the window close button?
     for event in pygame.event.get():
